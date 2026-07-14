@@ -1,0 +1,17 @@
+# Server-side configuration. Secrets can stay in `.env`; this file is the
+# authoritative whitelist for which client may access which CTP account.
+
+listen_addr = "0.0.0.0:8000"
+market_data_listen_addr = "0.0.0.0:8001"
+md_front = "tcp://182.254.243.31:30011"
+dynlib_dir = "crates/server/src/adapter/exchange/ctp"
+
+[[clients]]
+client_id = "CY"
+accounts = ["268809"]
+permission = "Full"
+
+[[clients]]
+client_id = "HB"
+accounts = ["268508"]
+permission = "QueryOnly"

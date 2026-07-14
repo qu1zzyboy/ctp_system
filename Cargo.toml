@@ -1,0 +1,36 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/common",
+    "crates/model",
+    "crates/client",
+    "crates/server",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["quantSystem"]
+license = "Proprietary"
+
+[workspace.dependencies]
+ctp-common = { path = "crates/common" }
+ctp-model = { path = "crates/model" }
+ctp-client = { path = "crates/client" }
+ctp-server = { path = "crates/server" }
+
+# CTP native binding (dynlib). Default API: v6.7.13 (SimNow / Linux).
+# Switch via features, e.g. ctp_v6_7_2 / ctp_v6_7_11 / openctp.
+ctp2rs = { version = "0.1.10-alpha4", default-features = false, features = ["v1alpha1", "ctp_v6_7_13"] }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.9"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+bytes = "1"

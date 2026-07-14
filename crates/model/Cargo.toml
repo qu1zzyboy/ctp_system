@@ -1,0 +1,13 @@
+[package]
+name = "ctp-model"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Trading domain model (nautilus-style), system-agnostic"
+
+[dependencies]
+serde = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+thiserror = { workspace = true }

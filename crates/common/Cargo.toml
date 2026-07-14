@@ -1,0 +1,21 @@
+[package]
+name = "ctp-common"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Shared infrastructure: messaging, logging, network clients"
+
+[dependencies]
+ctp-model = { workspace = true }
+ctp2rs = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+bytes = { workspace = true }
