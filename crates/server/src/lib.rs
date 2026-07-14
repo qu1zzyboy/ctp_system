@@ -6,7 +6,6 @@ pub mod actor;
 pub mod adapter;
 pub mod config;
 pub mod session;
-pub mod trade_actor_ops;
 
 pub use actor::*;
 pub use adapter::{
