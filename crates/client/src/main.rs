@@ -5,10 +5,11 @@ use ctp_model::{
     AccountId, CancelRequest, ClientOrderId, Direction, InstrumentId, OffsetFlag, OrderRequest,
     OrderStatus, OrderType,
 };
-use std::{pin::Pin, time::Duration};
+use std::{path::Path, pin::Pin, time::Duration};
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    load_client_env()?;
     init_logging("info,ctp_client=debug");
 
     let client_id = client_id_from_env()?;
@@ -224,6 +225,15 @@ async fn main() -> Result<()> {
         }
     }
 
+    Ok(())
+}
+
+fn load_client_env() -> Result<()> {
+    let env_file = std::env::var("CTP_CLIENT_ENV_FILE").unwrap_or_else(|_| ".env".into());
+    let path = Path::new(&env_file);
+    if path.exists() {
+        dotenvy::from_path(path)?;
+    }
     Ok(())
 }
 

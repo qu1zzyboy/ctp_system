@@ -22,3 +22,4 @@ tracing-subscriber = { workspace = true }
 chrono = { workspace = true }
 uuid = { workspace = true }
 thiserror = { workspace = true }
+dotenvy = "0.15.7"
